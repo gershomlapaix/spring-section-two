@@ -8,20 +8,38 @@ public class TennisCoach implements Coach {
 
 	private FortuneService fortuneService;
 	
-//	@Autowired
-//	public TennisCoach(FortuneService theFortuneService) {
-//		fortuneService  = theFortuneService;
-//	}
+	/**
+	 *  BY constructore injection
+	 *  ------------
+	 @Autowired
+	public TennisCoach(FortuneService theFortuneService) {
+		fortuneService  = theFortuneService;
+	}*/
 	
+	public TennisCoach() {
+		System.out.println("Inside TennisCoach def constructor");
+	}
+	
+	public FortuneService getFortuneService() {
+		return fortuneService;
+	}
+
+	@Autowired
+	public void doSomeCrazyStaff(FortuneService fortuneService) {
+		this.fortuneService = fortuneService;
+	}
+
+
+
 	@Override
 	public String getDailyWorkout() {
 		
 		return "Wake up early";
 	}
 
-//	@Override
-//	public String getDailyFortune() {
-//		return fortuneService.getFortune();
-//	}
+	@Override
+	public String getDailyFortune() {
+		return fortuneService.getFortune();
+	}
 
 }
