@@ -1,14 +1,27 @@
 package com.lapaix.annots;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component        // "thatSillyCoach" : bean ID
+@Component
 public class TennisCoach implements Coach {
 
+	private FortuneService fortuneService;
+	
+//	@Autowired
+//	public TennisCoach(FortuneService theFortuneService) {
+//		fortuneService  = theFortuneService;
+//	}
+	
 	@Override
 	public String getDailyWorkout() {
 		
-		return "Practice too much during the mid day";
+		return "Wake up early";
 	}
+
+//	@Override
+//	public String getDailyFortune() {
+//		return fortuneService.getFortune();
+//	}
 
 }

@@ -1,5 +1,8 @@
 package com.lapaix.ioc;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class BaseballCoach implements Coach{
 
 	// define the a field for the dependency

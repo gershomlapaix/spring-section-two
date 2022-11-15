@@ -3,22 +3,24 @@ package com.lapaix.annots;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AppDemo {
-	public static void main(String[] args) {
-		try {
 
-			// read the spring config file
+	public static void main(String[] args) {
+		
+		try {
+			// load spring configuration file 
 			ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 			
-			// get the bean from spring container
-			Coach theCoach = context.getBean("tennisCoach", Coach.class);
+			System.out.println("-----------------------------\n");
 			
-			// call a method on the bean
-			System.out.println(theCoach.getDailyWorkout());
+			Coach coach = context.getBean("tennisCoach", Coach.class);
 			
+			System.out.println(coach.getDailyWorkout());
 			// close the context
 			context.close();
 		} catch (Exception e) {
+			// TODO: handle exception\
 			System.out.println(e.getMessage());
 		}
 	}
+
 }
