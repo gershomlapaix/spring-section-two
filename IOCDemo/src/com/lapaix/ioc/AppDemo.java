@@ -17,6 +17,12 @@ public class AppDemo {
 			System.out.println(theCoach.getDailyWorkout());
 			System.out.println(theCoach.getDailyFortune());
 			
+			System.out.println("-----------------------------\n");
+			
+			CricketCoach crCoach = context.getBean("cricket", CricketCoach.class);
+			System.out.println(crCoach.getDailyWorkout());
+			System.out.println(crCoach.getDailyFortune());
+			
 			// close the context
 			context.close();
 		} catch (Exception e) {
