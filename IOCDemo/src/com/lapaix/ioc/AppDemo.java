@@ -23,6 +23,9 @@ public class AppDemo {
 			System.out.println(crCoach.getDailyWorkout());
 			System.out.println(crCoach.getDailyFortune());
 			
+			// get email and team of the cricket coach
+			System.out.println("Team: "+crCoach.getEmail());
+			
 			// close the context
 			context.close();
 		} catch (Exception e) {

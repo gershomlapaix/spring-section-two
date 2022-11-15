@@ -4,6 +4,9 @@ public class CricketCoach implements Coach {
 
 	private FortuneService fortuneService;
 	
+	private String email;
+	private String team;
+	
 	public CricketCoach() {
 		System.out.println("Inside CricketCoach constructor.");
 	}
@@ -15,6 +18,22 @@ public class CricketCoach implements Coach {
 	public void setFortuneService(FortuneService fortuneService) {
 		System.out.println("Inside the CricketCoach setter method");
 		this.fortuneService = fortuneService;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTeam() {
+		return team;
+	}
+
+	public void setTeam(String team) {
+		this.team = team;
 	}
 
 	@Override

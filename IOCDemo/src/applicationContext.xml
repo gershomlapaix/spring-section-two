@@ -23,6 +23,8 @@
 
      <bean id="cricket" class="com.lapaix.ioc.CricketCoach">
        <property name="fortuneService" ref="myFortune"/>
+       <property name="team" value="SUNS"/>
+       <property name="email" value="crcoach@gmail.com"/>
      </bean>
 </beans>
 
