@@ -1,12 +1,11 @@
 package com.lapaix.annots;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class TennisCoach implements Coach {
-
-	private FortuneService fortuneService;
 	
 	/**
 	 *  BY constructore injection
@@ -16,20 +15,27 @@ public class TennisCoach implements Coach {
 		fortuneService  = theFortuneService;
 	}*/
 	
-	public TennisCoach() {
-		System.out.println("Inside TennisCoach def constructor");
-	}
-	
-	public FortuneService getFortuneService() {
+	/** 
+	 * public FortuneService getFortuneService() {
 		return fortuneService;
 	}
+	 */
 
-	@Autowired
+	/**
+	 * @Autowired
 	public void doSomeCrazyStaff(FortuneService fortuneService) {
 		this.fortuneService = fortuneService;
 	}
-
-
+	 * */
+	
+	@Autowired
+	@Qualifier("randomFortuneService")
+	private FortuneService fortuneService;
+	
+	
+	public TennisCoach() {
+		System.out.println("Inside TennisCoach def constructor");
+	}
 
 	@Override
 	public String getDailyWorkout() {
@@ -41,5 +47,4 @@ public class TennisCoach implements Coach {
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
 	}
-
 }
