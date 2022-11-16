@@ -8,13 +8,6 @@
 </head>
 <body>
 
-<!-- <form action="processForm" method="GET">
- -->
- <form action="processFormV2" method="GET">
- 
-	<input type="text" name="studentName">
-	<input type="submit">
-</form>
-
+<p> The message: ${message }</p>
 </body>
 </html>
