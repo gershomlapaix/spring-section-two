@@ -2,9 +2,11 @@ package com.lapaix.annots;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("prototype")
 public class TennisCoach implements Coach {
 	
 	/**
@@ -31,6 +33,20 @@ public class TennisCoach implements Coach {
 	@Autowired
 	@Qualifier("randomFortuneService")
 	private FortuneService fortuneService;
+	
+	
+	// define bean init method
+	@PostConstruct
+	public void doStartup() {
+		System.out.println("Inside doStartup() method");
+	}
+	
+	// define bean cleanup method
+	@PreDestroy
+	public void doCleanup() {
+			System.out.println("Inside doStartup() method");
+		}
+		
 	
 	
 	public TennisCoach() {
