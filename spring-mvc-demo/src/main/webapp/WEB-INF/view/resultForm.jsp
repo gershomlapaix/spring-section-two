@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>We are coming</h1>
+
+<p>Hello ${param.studentName}</p>
+
 </body>
 </html>
