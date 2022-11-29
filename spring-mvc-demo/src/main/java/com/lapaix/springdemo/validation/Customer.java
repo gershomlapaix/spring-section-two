@@ -22,6 +22,15 @@ public class Customer {
 	@Pattern(regexp = "^[a-zA-Z0-9]{5}")  // 5chars or digits
 	public String postalCode;
 	
+	@CourseCode
+	private String courseCode;
+	
+	public String getCourseCode() {
+		return courseCode;
+	}
+	public void setCourseCode(String courseCode) {
+		this.courseCode = courseCode;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
