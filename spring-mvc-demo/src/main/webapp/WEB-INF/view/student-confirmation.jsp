@@ -7,6 +7,6 @@
 <title>Student confirmation</title>
 </head>
 <body>
- Our good customer is : ${customer.firstName} ${customer.lastName }
+ The first student is : ${student.firstName} ${student.lastName }
 </body>
 </html>
