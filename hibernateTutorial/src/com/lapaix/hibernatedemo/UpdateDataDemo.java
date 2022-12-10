@@ -27,10 +27,14 @@ public class UpdateDataDemo {
 			System.out.println("Updating student's data...");
 			myStudent.setEmail("1@lapaix.com");
 			
+			
+			// update email for all students
+			System.out.println("Update email for all the students");
+			session.createQuery("update Student set email='foo@lapaix.com'").executeUpdate();
+			
 			session.getTransaction().commit();
 			System.out.println("Done!");
-			
-			
+	
 		}
 		finally {
 			sessionFactory.close();
