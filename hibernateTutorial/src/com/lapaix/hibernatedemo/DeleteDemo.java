@@ -8,7 +8,7 @@ import com.lapaix.entity.Instructor;
 import com.lapaix.entity.InstructorDetail;
 import com.lapaix.entity.Student;
 
-public class CreateDemo {
+public class DeleteDemo {
 
 	public static void main(String[] args) {
 		
@@ -24,23 +24,21 @@ public class CreateDemo {
 		
 		try {
 			
+			// create the objects
+			Instructor instructor = new Instructor("Patrick", "Bisoso", "bisoso@gmail.com");
+			InstructorDetail insDetail = new InstructorDetail("https://www.bisoso/youtube", "Patrick");
+			
+			//associate the objects
+			instructor.setInstructorDetail(insDetail);
+			
 			// start transaction
 			session.beginTransaction();
 			
-			// get instructor using primary key
-			int instructorId = 1;
-			Instructor tempInstructor = session.get(Instructor.class, instructorId);
 			
-			// delete that instructor
-			if(tempInstructor != null) {
-				System.out.println("Deleting: "+tempInstructor);
-				
-				// this will also delete the instructor's details
-				session.delete(tempInstructor);
-			}
-			else {
-				System.out.println("No such instructor found");
-			}
+			//save the instructor
+			// Note: this will also save the instructorDetail because of cascade
+			System.out.println("Saving the instructor");
+			session.save(instructor);
 			
 			// commit transaction
 			session.getTransaction().commit();
