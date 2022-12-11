@@ -9,7 +9,7 @@ import com.lapaix.entity.Instructor;
 import com.lapaix.entity.InstructorDetail;
 import com.lapaix.entity.Student;
 
-public class CreateDemoOneToMany {
+public class CreateInstructorDemo {
 
 	public static void main(String[] args) {
 		
