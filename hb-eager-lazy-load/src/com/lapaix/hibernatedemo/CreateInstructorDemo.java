@@ -9,7 +9,7 @@ import com.lapaix.entity.Instructor;
 import com.lapaix.entity.InstructorDetail;
 import com.lapaix.entity.Student;
 
-public class CreateCourseDemo {
+public class CreateInstructorDemo {
 
 	public static void main(String[] args) {
 		
@@ -26,36 +26,23 @@ public class CreateCourseDemo {
 		
 		try {
 			
+			Instructor instructor = new Instructor("Nesta", "Raymond", "ray@gmail.com");
+			InstructorDetail insDetail = new InstructorDetail("youtube.com", "Video gaming");
+			// start transaction
 			session.beginTransaction();
 			
-			/**
-			 * get the instructor from the database
-			 * create some courses
-			 * add courses to instructor
-			 * save the courses
-			 */
+			instructor.setInstructorDetail(insDetail);
 			
-			int instructorId = 2;
-			Instructor tempInstructor = session.get(Instructor.class, instructorId);
-			
-			Course tempCourse1 = new Course("Dancing", tempInstructor);
-			Course tempCourse2 = new Course("DeeJaying", tempInstructor);
-
-			
-			// add courses to the instructor
-			tempInstructor.add(tempCourse1);
-			tempInstructor.add(tempCourse2);
-			
-			// save the courses
-			session.save(tempCourse1);
-			session.save(tempCourse2);
+			// save the instructor
+			session.save(instructor);
 			
 			// commit transaction
 			session.getTransaction().commit();
 			System.out.println("Done!");
-		} finally {
-			sessionFactory.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
 	}
 
 }

@@ -4,12 +4,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.lapaix.entity.Course;
 import com.lapaix.entity.Instructor;
 import com.lapaix.entity.InstructorDetail;
 import com.lapaix.entity.Student;
 
-public class CreateCourseDemo {
+public class GetInstructorDetailDemo {
 
 	public static void main(String[] args) {
 		
@@ -18,7 +17,6 @@ public class CreateCourseDemo {
 				.configure()
 				.addAnnotatedClass(Instructor.class)
 				.addAnnotatedClass(InstructorDetail.class)
-				.addAnnotatedClass(Course.class)
 				.buildSessionFactory();
 		
 		// create a session
@@ -26,34 +24,24 @@ public class CreateCourseDemo {
 		
 		try {
 			
+			
+			// start transaction
 			session.beginTransaction();
 			
-			/**
-			 * get the instructor from the database
-			 * create some courses
-			 * add courses to instructor
-			 * save the courses
-			 */
+			// get the instructor detail object
+			int theId = 2;
+			InstructorDetail insDetail = session.get(InstructorDetail.class, theId);
 			
-			int instructorId = 2;
-			Instructor tempInstructor = session.get(Instructor.class, instructorId);
+			// print the instructor detail
+			System.out.println("Instructor details" +insDetail);
 			
-			Course tempCourse1 = new Course("Dancing", tempInstructor);
-			Course tempCourse2 = new Course("DeeJaying", tempInstructor);
-
-			
-			// add courses to the instructor
-			tempInstructor.add(tempCourse1);
-			tempInstructor.add(tempCourse2);
-			
-			// save the courses
-			session.save(tempCourse1);
-			session.save(tempCourse2);
+			// get the associated instructor
+			 System.out.println("Associated instructor: "+ insDetail.getInstructor());
 			
 			// commit transaction
 			session.getTransaction().commit();
 			System.out.println("Done!");
-		} finally {
+		}finally {
 			sessionFactory.close();
 		}
 	}

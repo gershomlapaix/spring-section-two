@@ -53,9 +53,10 @@ public class CreateCourseDemo {
 			// commit transaction
 			session.getTransaction().commit();
 			System.out.println("Done!");
-		} finally {
-			sessionFactory.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
 	}
 
 }
