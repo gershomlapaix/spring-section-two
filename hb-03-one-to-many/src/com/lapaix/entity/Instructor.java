@@ -119,7 +119,6 @@ public class Instructor {
 	
 	
 	// adding convenience methods for bi-directional relationship
-	
 	public void add(Course theCourse) {
 		if(courses == null) {
 			courses = new ArrayList<>();

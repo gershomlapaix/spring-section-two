@@ -28,6 +28,13 @@ public class GetInstructorCoursesDemo {
 			// start transaction
 			session.beginTransaction();
 			
+			int instructorId = 2;
+			Instructor tempInstructor = session.get(Instructor.class, instructorId);
+			
+			System.out.println("Instructor : "+tempInstructor);
+			
+			// get courses for the instructor
+			System.out.println("Courses:  "+tempInstructor.getCourses());
 			
 			// commit transaction
 			session.getTransaction().commit();
