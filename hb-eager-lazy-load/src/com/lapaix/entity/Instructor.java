@@ -51,7 +51,7 @@ public class Instructor {
 	
 	
 	// for courses relationship
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "instructor", cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.DETACH, CascadeType.MERGE})
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "instructor", cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.DETACH, CascadeType.MERGE})
 	private List<Course> courses;
 	
 	public Instructor() {}

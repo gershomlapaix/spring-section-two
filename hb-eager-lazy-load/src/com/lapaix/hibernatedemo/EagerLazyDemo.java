@@ -31,14 +31,19 @@ public class EagerLazyDemo {
 			int instructorId = 2;
 			Instructor tempInstructor = session.get(Instructor.class, instructorId);
 			
-			System.out.println("Instructor : "+tempInstructor);
+			System.out.println("lapaixOrg: Instructor : "+tempInstructor);
 			
 			// get courses for the instructor
-			System.out.println("Courses:  "+tempInstructor.getCourses());
+			System.out.println("lapaixOrg: Courses:  "+tempInstructor.getCourses());
 			
 			// commit transaction
 			session.getTransaction().commit();
-			System.out.println("Done!");
+			session.close();
+			
+			// THE DATA WILL BE THERE BECAUSE IT IS LOADED IN THE MEMORY
+			System.out.println("\nlapaixOrg: the session is now closed\n");
+			System.out.println("lapaixOrg: Courses:  "+tempInstructor.getCourses());
+			System.out.println("lapaixOrg: Done!");
 		} finally {
 			sessionFactory.close();
 		}
